@@ -1,0 +1,61 @@
+<div style="text-align: center;"><h1>PRODUCTO</h1></div>
+  <form (ngSubmit)="onSubmit()" #form="ngForm" >
+
+      <div class="row">
+        <div class="col-sm-6">
+            <input class="form-control" type="text" placeholder="Nombre" name='nombre' [(ngModel)]="productoform.nombre">
+        </div>
+        <div class="col-sm-6">
+            <input class="form-control" type="number" placeholder="Precio" name='precio' [(ngModel)]="productoform.precio">
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <input class="form-control" type="text" placeholder="Creado Por" name='creado_por' [(ngModel)]="productoform.creado_por">
+          </div>
+        </div>
+      </div>
+    <div class="form-group">
+      <div class="row">
+        <ng-container *ngIf="!editar; else elseTemplate">
+         <div class="col-sm-12">
+          <button class="btn btn-primary btn-block" type="submit">{{tipo}}</button>
+         </div>
+        </ng-container>
+        <ng-template #elseTemplate>
+          <div class="col-sm-6">
+            <button class="btn btn-primary btn-block" type="submit">{{tipo}}</button>
+           </div>
+           <div class="col-sm-6">
+            <button class="btn btn-primary btn-block" (click)="OnCancelar()">Cancelar</button>
+           </div>
+        </ng-template>
+      </div>
+    </div>
+    <div style="text-align: center;"><h1>{{message}}</h1></div>
+
+  </form>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Precio</th>
+      <th scope="col">Creado Por</th>
+      <th scope="col">Editar</th>
+      <th scope="col">Eliminar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let pro of productos">
+      <th  scope="row">{{pro.id}}</th>
+      <td >{{pro.nombre}}</td>
+      <td >{{pro.precio}}</td>
+      <td >{{pro.creado_por}}</td>
+      <td ><button class="btn btn-warning btn-block" (click)="OnCapturarEditar(pro)"><i class="fa fa-pencil" aria-hidden="true"></i></button></td>
+      <td ><button class="btn btn-danger btn-block" (click)="Oneliminar(pro.id)"><i class="fa fa-trash-o" aria-hidden="true"></i></button></td>
+    </tr>
+  </tbody>
+</table>

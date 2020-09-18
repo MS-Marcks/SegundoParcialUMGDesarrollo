@@ -1,0 +1,34 @@
+<div style="text-align: center;"><h1>DETALLE DE FACTURA No. {{factura.id}}</h1></div>
+<div class="row">
+  <div class="col-sm-4"><strong>Cliente:</strong> {{cliente.nombre}}</div>
+  <div class="col-sm-4"><strong>Cliente:</strong> {{cliente.direccion}}</div>
+   <div class="col-sm-4"> <strong>Nit:</strong> {{cliente.nit}}</div>
+</div>
+<div class="row">
+  <div class="col-sm-4"><strong>Empleado:</strong> {{factura.empleado}}</div>
+  <div class="col-sm-4"><strong>Total:</strong> {{factura.total}}</div>
+  <div class="col-sm-4"> <strong>Fecha:</strong> {{factura.creado}}</div>
+
+</div>
+<br>
+<br>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Producto</th>
+      <th scope="col">Cantidad</th>
+      <th scope="col">Sub total</th>
+      <th scope="col">Creado por</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let de of detalle">
+      <th  scope="row">{{de.id}}</th>
+      <td >{{de.nombre}}</td>
+      <td >{{de.cantidad}}</td>
+      <td >{{de.subtotal}}</td>
+      <td >{{de.creado_por}}</td>
+    </tr>
+  </tbody>
+</table>

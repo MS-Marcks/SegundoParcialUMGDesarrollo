@@ -1,0 +1,39 @@
+<div class='container'>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">0907-17-12193</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <ng-container *ngIf="logein();">
+          <li class="nav-item">
+            <a class="nav-link" routerLink='cliente'>Cliente</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"  routerLink='empleado'>Empleado</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"  routerLink='producto'>Producto</a>
+          </li>
+        </ng-container>
+      </ul>
+       <ul class="navbar-nav ml-auto">
+         <ng-container *ngIf="!logein(); else elseTemplate">
+            <li class="nav-item">
+              <a class="nav-link" routerLink='login'>Ingresar</a>
+            </li>
+         </ng-container>
+         <ng-template #elseTemplate>
+            <li class="nav-item">
+              <a class="nav-link" (click)="logout()">Salir</a>
+            </li>
+         </ng-template>
+      </ul>
+    </div>
+  </nav>
+</div>
+<br>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,35 @@
+<div style="text-align: center;"><h1>FACTURAS</h1></div>
+<div class="row">
+  <div class="col-sm-6">
+   <strong>Nombre:</strong> {{ClienteSelccionado.nombre}}
+  </div>
+  <div class="col-sm-6"><strong>Direccion:</strong> {{ClienteSelccionado.direccion}}</div>
+</div>
+<div class="row">
+  <div class="col-sm-6">
+   <strong>Nombre:</strong> {{ClienteSelccionado.nit}}
+  </div>
+</div>
+<br>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Fecha</th>
+      <th scope="col">Total</th>
+      <th scope="col">Empleado</th>
+      <th scope="col">Estado</th>
+      <th scope="col">Listado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let fact of facturas">
+      <th  scope="row">{{fact.id}}</th>
+      <td >{{fact.creado}}</td>
+      <td >{{fact.total}}</td>
+      <td >{{fact.empleado}}</td>
+      <td >{{fact.estado}}</td>
+      <td ><button class="btn btn-warning btn-block" (click)="OnProductos(fact)"><i class="fa fa-list" aria-hidden="true"></i></button></td>
+    </tr>
+  </tbody>
+</table>
